@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chotu.ly - URL Shortener</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <link href="/stylesheets/home.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav
+      style="background-image: linear-gradient(to bottom, #ffc0a2, #f5f5f5)"
+      class="navbar navbar-expand-lg navbar-light bg-light"
+    >
+      <div class="container">
+        <a class="navbar-brand" style="color: #ff6116" href="/">Chotu.ly</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">| Home</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="https://github.com/BlackHatDevX/CHOTU.LY-SHORTNER/"
+                >| Source Code</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/BlackHatDevX"
+                >| Other Projects</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://bit.ly/jashgro"
+                >| Made with ❤️ by Jash Gro</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Shorten a long link</h5>
+              <p>Paste a long URL</p>
+              <p>Example: http://super-long-link.com/shorten-it</p>
+              <% if (data) { %>
+              <div class="generated-url-box">
+                <p class="generated-url-title">Generated Link:</p>
+                <div class="input-group mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="generatedLink"
+                    value="<%= data.shortnUrl %>"
+                    readonly
+                  />
+                  <div class="input-group">
+                    <button
+                      class="btn btn-success btn-copy"
+                      type="button"
+                      onclick="copyToClipboard()"
+                    >
+                      Copy
+                    </button>
+                    <a
+                      href="<%= data.shortnUrl %>"
+                      target="_blank"
+                      class="btn btn-info btn-open"
+                    >
+                      Open
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div>
+                <p>No credit card required. Your free plan includes:</p>
+                <ul>
+                  <li>Short links</li>
+                  <li>QR Codes</li>
+                  <li>Link-in-bio page</li>
+                </ul>
+              </div> -->
+              <% } %>
+              <!-- Form to input URL -->
+              <form action="/" method="post">
+                <div class="form-group">
+                  <input
+                    type="url"
+                    class="form-control"
+                    id="urlInput"
+                    placeholder="Enter long URL..."
+                    name="urlInput"
+                  />
+                </div>
+                <div class="form-group">
+                  <div class="custom-control custom-checkbox">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="customLinkCheckbox"
+                      onchange="handleCustomLink()"
+                    />
+                    <label class="custom-control-label" for="customLinkCheckbox"
+                      >Custom Link</label
+                    >
+                  </div>
+                </div>
+                <div
+                  class="form-group"
+                  id="customLinkInput"
+                  style="display: none"
+                >
+                  <label for="customLink">Custom Link:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="customLink"
+                    name="customLink"
+                    placeholder="Enter custom link..."
+                  />
+                </div>
+                <button type="submit" class="btn btn-primary">Shorten</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="container mt-5">
+      <h2 class="text-center">FAQ</h2>
+      <div class="accordion" id="faqAccordion">
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+              <button
+                class="btn btn-link"
+                type="button"
+                data-toggle="collapse"
+                data-target="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                What is a URL shortener?
+              </button>
+            </h5>
+          </div>
+
+          <div
+            id="collapseOne"
+            class="collapse show"
+            aria-labelledby="headingOne"
+            data-parent="#faqAccordion"
+          >
+            <div class="card-body">
+              A URL shortener is a tool that converts a long URL into a shorter,
+              more manageable link.
+            </div>
+          </div>
+        </div>
+        <!-- Add more FAQ items as needed -->
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h5>About Chotu.ly</h5>
+            <p>
+              Chotu.ly is a URL shortening service that helps you shorten long
+              URLs into more manageable links. It's fast, free, and easy to use.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      function handleCustomLink() {
+        var customLinkCheckbox = document.getElementById("customLinkCheckbox");
+        var customLinkInput = document.getElementById("customLinkInput");
+
+        if (customLinkCheckbox.checked) {
+          customLinkInput.style.display = "block";
+        } else {
+          customLinkInput.style.display = "none";
+          document.getElementById("customLink").value = ""; // Clear custom link input
+        }
+      }
+
+      // Add event listener to input field
+      document
+        .getElementById("customLink")
+        .addEventListener("input", function () {
+          var input = this.value;
+          // Remove spaces from input
+          input = input.replace(/\s/g, "");
+          // Update input field with modified value
+          this.value = input;
+        });
+      function copyToClipboard() {
+        var copyText = document.getElementById("generatedLink");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /* For mobile devices */
+        document.execCommand("copy");
+        alert("Copied the link: " + copyText.value);
+      }
+    </script>
+  </body>
+</html>

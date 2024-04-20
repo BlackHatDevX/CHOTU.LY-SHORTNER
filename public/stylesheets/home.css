@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Sacramento&display=swap");
+/* Custom CSS for chotu - URL Shortener */
+body {
+  background-color: #f5f5f5;
+  font-family: "Kode Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.card {
+  margin-top: 20px;
+}
+
+.card-title {
+  color: #ff6116;
+}
+
+.btn-primary {
+  background-color: #ff6116;
+  border-color: #ff6116;
+}
+
+.btn-primary:hover {
+  background-color: #d45010;
+  border-color: #d45010;
+}
+
+.accordion .card-header {
+  background-color: #ff6116;
+}
+
+.accordion .card-header button {
+  color: #fff;
+}
+
+.navbar-brand {
+  font-family: "Sacramento", cursive;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 3rem;
+}
+
+/* Custom CSS for chotu.ly - URL Shortener */
+/* Add this to the end of your home.css file */
+
+.generated-url-box {
+  background-color: #ff6116;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.generated-url-title {
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.generated-url {
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.generated-url:hover {
+  text-decoration: underline;
+}
+
+.btn-copy {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.btn-open {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Custom CSS for footer */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 50px 0;
+}
+
+.footer h5 {
+  color: #fff;
+}
+
+.footer p {
+  margin-bottom: 10px;
+}
