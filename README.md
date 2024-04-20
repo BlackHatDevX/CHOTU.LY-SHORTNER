@@ -4,9 +4,11 @@ Chotu.ly is a URL shortening service built with Node.js, Express, and MongoDB/Mo
 
 ## Demo
 
-Check out the live demo at [demo.com](https://demo.com).
+Check out the live demo at [https://chotu-ly.onrender.com/](https://chotu-ly.onrender.com/).
 
 ## Screenshots
+![mobile-white](https://github.com/BlackHatDevX/CHOTU.LY-SHORTNER/assets/91268029/10dd7526-c59a-4f10-ad5b-fce708994925)
+
 
 ## Features
 
